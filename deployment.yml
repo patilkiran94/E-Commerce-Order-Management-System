@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: order-app
+  template:
+    metadata:
+      labels:
+        app: order-app
+    spec:
+      containers:
+        - name: order-app
+          image: <YOUR_DOCKERHUB_USERNAME>/order-app:latest
+          ports:
+            - containerPort: 8080
